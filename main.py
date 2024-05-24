@@ -13,7 +13,11 @@ DEFAULT_DUPLICATES = False
 def sort_list(items, ascending=True):
     if not isinstance(items, list):
         raise RuntimeError(f"No puede ordenar {type(items)}")
-
+    
+    remove_d = input("¿Deseas remover duplicados de la lista? (yes, no):")
+    if (remove_d == "yes"):
+        items=remove_duplicates_from_list(items)
+    
     return sorted(items, reverse=(not ascending))
 
 
@@ -41,7 +45,7 @@ if __name__ == "__main__":
                 word_list.append(line.strip())
     else:
         print(f"El fichero {filename} no existe")
-        word_list = ["ravenclaw", "gryffindor", "slytherin", "hufflepuff"]
+        word_list = ["ravenclaw", "gryffindor", "slytherin", "hufflepuff", "revenclaw"]
 
     if remove_duplicates:
         word_list = remove_duplicates_from_list(word_list)
